@@ -2,13 +2,14 @@
 equipa = list()
 jogador = dict()
 golos = list()
-
-total = 0
+total_golos = list()
 
 while True:
 
     golos.clear()
     jogador.clear()
+    
+    total = 0
     
     jogador['nome'] = str(input('Nome do jogador: ')).capitalize().strip()
     partidas = int(input(f' Quantas partidas {jogador["nome"]} jogou? '))
@@ -18,21 +19,47 @@ while True:
         golos.append(int(input(f'Quantos golos na partida {gols + 1} ')))
     jogador['golos'] = golos[:]
 
-    # Total de Golos
-    for algo in range(len(golos)):
-        total += golos[algo]
+    # Cálculo do Total de Golos
+    for g in jogador['golos']:
+        total += g
         
+    total_golos.append(total)
     equipa.append(jogador.copy())
     
     escolha = str(input('Quer continuar [S/N]: ')).upper().strip()
         
     if escolha in 'N':
+        print('-=' * 30)
+        print('cod      nome      gols      total')
+        print('-' * 60)
+
+        for enum, i in enumerate(equipa):
+            
+            print(f'{enum}', end='  ')
+            
+            for v in i.values():
+                print(f'{v}  ', end='')
+
+            print(f' {total_golos[enum]}')
+        
         break
+    
+while True: 
+    
+    # COD = Nº De Jogador
+    escolha_dados = int(input('Mostrar dados de qual jogador? (999 para parar) '))
 
-print('-=' * 30)
-print('cod    nome    gols    total')
+    # Se 999 -> Stop
+    if escolha_dados == 999:
+        break
+    
+    if escolha_dados >= len(equipa):
+        print(f'ERRO! Não existe nenhum jogador com o código de {escolha_dados}')
+    else:    
+        print(f' -- LEVANTAMENTO DO JOGADOR {equipa[escolha_dados]["nome"]}: ')
+            
+        for enum, every in enumerate(equipa[escolha_dados]["golos"]):
+            print(f'     No jogo {enum + 1} fez {every} golos;')
 
-for i in equipa:
-    for v in i.values():
-        print(f'{v}', end='')
-    print()
+print('>> .. PROGRAMA ENCERRANDO .. <<')
+    
