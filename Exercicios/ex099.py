@@ -14,7 +14,6 @@ def maior(*args):
             if args[i] > mai:
              mai = args[i]
 
-
     print(f'Foram informados {len(args)} valores ao todo')
     print(f'O maior valor informado foi {mai} .')
 
