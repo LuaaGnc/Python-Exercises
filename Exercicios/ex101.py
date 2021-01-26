@@ -12,5 +12,6 @@ def vota(ano_sistema, ano_nascimento):
     else:
         print(f' --> Com {idade} anos: NÃO VOTA!')
 
+
 ano_nascimento = int(input('Em que ano você nasceu? '))
 vota(ano_sistema, ano_nascimento)
