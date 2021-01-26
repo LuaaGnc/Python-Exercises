@@ -2,21 +2,15 @@ from time import gmtime, strftime
 
 # Importa o ano do sistema
 ano_sistema = int(strftime('%Y', gmtime()))
-idade = 0
 
 # Função que determina se pode ou não votar
-def vota(ano_sistema, ano_nascimento ):
-    global idade
+def vota(ano_sistema, ano_nascimento):
     idade = ano_sistema - ano_nascimento
 
     if idade >= 18:
-        return True
+        print(f' --> Com {idade} anos: VOTA! ')
     else:
-        return False
+        print(f' --> Com {idade} anos: NÃO VOTA!')
 
 ano_nascimento = int(input('Em que ano você nasceu? '))
-resposta = vota(ano_sistema, ano_nascimento)
-if resposta:
-    print(f'Com {idade}: VOTA!')
-else:
-    print(f'Com {idade}: NÃO VOTA!')
+vota(ano_sistema, ano_nascimento)
