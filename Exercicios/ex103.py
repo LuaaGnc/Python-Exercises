@@ -13,4 +13,3 @@ if nome_jogador == '':
     valida('<desconhecido>', golos_jogador)
 else:
     valida(nome_jogador, golos_jogador)
-
