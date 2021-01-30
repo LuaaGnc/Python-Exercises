@@ -1,4 +1,4 @@
-def fatorial(numero): 
+def fatorial(numero):
     """
     :param numero: N
     :return: N Factorial
