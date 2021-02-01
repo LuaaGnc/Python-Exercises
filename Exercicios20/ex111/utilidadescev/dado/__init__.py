@@ -2,10 +2,11 @@ def leiadinheiro(numero):
     valido = False
 
     while not valido:
-        if numero.isalpha():
-            print(f'\u001b[31m ERRO: {numero} não é um preço válido \u001b[0m')
-            a = input('Digite novamente um preço: R$').replace(',', '.')
-            numero = a
+        entrada = str(numero).replace(',', '.').strip()
+
+        if entrada.isalpha() or entrada.strip() == '':
+            print(f'\u001b[31m ERRO: {entrada} não é um preço válido \u001b[0m', end='')
+            numero = input('  Digite novamente abaixo\n   ')
         else:
             valido = True
-            return float(numero)
+            return float(entrada)
